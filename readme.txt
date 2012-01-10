@@ -1,10 +1,10 @@
 === InstaPost Press ===
-Contributors: Polevaultweb
+Contributors: polevaultweb
 Donate link: http://www.polevaultweb.com/contact/
 Tags: instagram, posts, integration, automatic, post, wordpress, posting, images
 Requires at least: 3.0
 Tested up to: 3.3
-Stable tag: 0.1
+Stable tag: 1.1
 
 Integrate your Instagram images and your WordPress blog with automatic posting of images into new blog posts.
 
@@ -42,6 +42,11 @@ You can use the built in installer and upgrader, or you can install the plugin m
 If you have to upgrade manually simply repeat the installation steps and re-enable the plugin.
 
 == Changelog ==
+
+
+= 1.1 =
+
+* Instagram API call changed to look at only users' images. Previously set to feed data. Rookie mistake.
 
 = 1.0 =
 
