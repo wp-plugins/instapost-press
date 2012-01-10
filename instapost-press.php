@@ -3,9 +3,9 @@
 Plugin Name: InstaPost Press
 Plugin URI: http://www.polevaultweb.com/instapost-press/  
 Description: Plugin for automatic posting of Instagram images into a WordPress blog.
-Author: Polevaultweb 
-Version: 1.0 
-Author URI: http://www.polevaultweb.com 
+Author: polevaultweb 
+Version: 1.1 
+Author URI: http://www.polevaultweb.com/
 
 
 Copyright 2012  polevaultweb  (email : info@polevaultweb.com)
@@ -24,8 +24,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 */
-
-define('IPP_VERSION', '1.0');
 
 
 if (!class_exists("InstaPost_Press")) {
@@ -144,7 +142,9 @@ if (!class_exists("InstaPost_Press")) {
 				
 				if(isset($auth->access_token)):
 					$access_token = $auth->access_token;
+					$user_id = $auth->user->id;
 					update_option('ipp_accesstoken', $access_token);
+					update_option('ipp_userid', $user_id );
 					return 'success';
 				else:
 					return 'Instagram: '.$auth->error_message;
@@ -162,7 +162,8 @@ if (!class_exists("InstaPost_Press")) {
 		public static function feed_data($manuallstid) {
 		
 			$access_token = get_option('ipp_accesstoken');
-		
+			$user_id = get_option('ipp_userid');
+
 			$images = array();
 			
 			if ($manuallstid == null) :
@@ -179,7 +180,7 @@ if (!class_exists("InstaPost_Press")) {
 			
 			
 			if($access_token != null):
-			$response = wp_remote_get("https://api.instagram.com/v1/users/self/feed?access_token=".$access_token.$min_id);
+			$response = wp_remote_get("https://api.instagram.com/v1/users/".$user_id."/media/recent/?access_token=".$access_token.$min_id);
 						
 			if(!is_wp_error($response) && $response['response']['code'] < 400 && $response['response']['code'] >= 200):
 				$data = json_decode($response['body']);
@@ -277,12 +278,15 @@ if (!class_exists("InstaPost_Press")) {
 			
 			//get count of array of images
 			$count = sizeof($images);
-			
+
 			//set counter
 			$last_id = 0;
 			
 			//loop through array to get image data
 			for ($i = 0; $i < $count; $i++) {
+					
+				//Don't include image of $manuallstid
+				if ($images[$i]["id"] != $manuallstid) :
 					
 				//get image variables
 				$title = $images[$i]["title"];
@@ -292,6 +296,9 @@ if (!class_exists("InstaPost_Press")) {
 							
 				//post new images to wordpress
 				self::blog_post($title,$image);
+
+				
+				endif;
 			
 			}
 			
@@ -300,6 +307,8 @@ if (!class_exists("InstaPost_Press")) {
 				//update last id field in database with last id of image added
 				update_option('ipp_manuallstid', self::return_last_id($images));
 			}
+
+			
 					
 		}
 		
