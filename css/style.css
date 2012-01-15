@@ -1,0 +1,56 @@
+.wrap h2 {
+	margin-bottom: 20px;
+}
+
+
+#ipp_content_left
+{
+	width: 38%;
+}
+
+#ipp_content_right
+{
+	width: 62%;
+}
+
+
+#logo:hover
+{
+	opacity: 0.75;
+}
+
+.postbox {
+    margin: 10px 10px 0 0;
+}
+
+label.textinput {
+	width: 100px;
+	margin: 5px 10px 5px 0;
+	float: left;
+}
+
+input[type="text"], input[type="password"], select
+{
+	width: 200px;
+}
+
+.image_left{
+	float: left;
+	width: 150px;
+	height: 150px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.image_right
+{
+	float: left;
+	height: 150px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.clear
+{
+	clear: both;
+}
