@@ -4,29 +4,15 @@ Donate link: http://www.polevaultweb.com/contact/
 Tags: instagram, posts, integration, automatic, post, wordpress, posting, images
 Requires at least: 3.0
 Tested up to: 3.3
-Stable tag: 1.1
+Stable tag: 1.2
 
 Integrate your Instagram images and your WordPress blog with automatic posting of images into new blog posts.
 
 == Description ==
 
-The InstaPost Press plugin allows you to automatically integrate your Instagram account with your WordPress blog.  
+The InstaPost Press plugin has been superseded by [Instagrate to WordPress](http://wordpress.org/extend/plugins/instagrate-to-wordpress/).
 
-No more manual embedding Instagram images into your posts, let this plugin take care of it all.
-
-Install the plugin. Configure your Instagram settings, pick your default WordPress post settings, and you are done. Take a photo or lots on Instagram. The next time someone visits your site, a new post will be created with your each photo from Instagram. 
-
-Full list of features:
-
-* Simple installation through integration with the Instagram API: insert your Instagram username and password.
-* Helpful feed of images in the admin screen.
-* Option to manually set the last image in the feed, so all later images will be posted.
-* Standard post settings of title is Instagram image title, and the content of the post is the image with link to large image. 
-* Configurable post settings:
-	*	Image size
-	*	Image CSS class
-	*	Post Category (selected from dropdown of available categories)
-	*	Post Author (selected from dropdown of available authors)
+Please deactivate, delete and install [Instagrate to WordPress](http://wordpress.org/extend/plugins/instagrate-to-wordpress/).
 
 == Installation ==
 
@@ -43,6 +29,9 @@ If you have to upgrade manually simply repeat the installation steps and re-enab
 
 == Changelog ==
 
+= 1.2 =
+
+* Plugin discontinued because of a naming conflict.
 
 = 1.1 =
 
@@ -59,12 +48,6 @@ If you have to upgrade manually simply repeat the installation steps and re-enab
 Please contact via info@polevaultweb.com
 
 == Screenshots ==
-
-1. Screenshot of the settings page for this plugin.
-2. Screenshot of the Instagram account settings.
-3. Screenshot of the default blog post settings.
-4. Screenshot of the admin feed of images from Instagram.
-5. Screenshot of the links section of the settings page.
 
 == Upgrade Notice ==
 
